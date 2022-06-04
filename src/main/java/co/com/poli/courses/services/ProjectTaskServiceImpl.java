@@ -35,7 +35,7 @@ public class ProjectTaskServiceImpl implements ProjectTaskService {
 
         }
 
-        if (!projectTask.getProjectIdentifier().equals(Long.toString(projectTask.getId()))) {
+        if (!(projectTask.getProjectIdentifier().equals(Long.toString(projectTask.getBacklog().getId())))) {
             errorResponse.put("message", "El ProjectIdentifier debe ser el mismo que tiene asociado el backlog");
             errorResponse.put("status", HttpStatus.BAD_REQUEST.toString());
             return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
